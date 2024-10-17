@@ -1,18 +1,18 @@
 export const momentumSketch = (p) => {
     // Box properties: position, velocity, mass, size, color
   let box1 = {
-    pos: { x: 100, y: 390 },
-    vel: { x: 0, y: 0 },
+    pos: { x: 100, y: 350 },
+    vel: { x: 0.1, y: 0 },
     mass: 1,
-    width: 10,
-    height: 10,
+    width: 50,
+    height: 50,
     col: { r: 200, g: 200, b: 200 }
   };
 
   let box2 = {
     pos: { x: 300, y: 300 },
-    vel: { x: -2, y: 0 },
-    mass: 10000,
+    vel: { x: -0.5, y: 0 },
+    mass: 100,
     width: 100,
     height: 100,
     col: { r: 200, g: 200, b: 200 }
