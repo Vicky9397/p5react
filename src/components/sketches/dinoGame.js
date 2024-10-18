@@ -6,7 +6,7 @@ export const dinoGame = (p) => {
     let noiseOffset = 0; // Noise offset for generating random distances
   
     p.setup = () => {
-      p.createCanvas(800, 200);
+      p.createCanvas(400, 400);
       dino = new Dino(p);
       obstacles.push(new Obstacle(p));
     };
@@ -50,6 +50,12 @@ export const dinoGame = (p) => {
           event.preventDefault();  // Prevent the default behavior of the up arrow (changing the dropdown)
           dino.jump(p);
         }
+    };
+
+    // Detect touch for jumping on touchscreen devices
+    p.touchStarted = () => {
+      dino.jump(p);
+      return false;  // Prevent any default behavior on touch
     };
       
     class Dino {

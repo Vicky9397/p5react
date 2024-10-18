@@ -39,12 +39,14 @@ export const momentumSketch = (p) => {
     box1VelInput = p.createInput(box1.vel.x.toString());
     box1VelInput.position(canvasX + 100, canvasY + 500); // Position relative to canvas
     box1VelInput.size(50);
+    box1VelInput.elt.disabled = true;
     box1VelInput.input(() => {
       box1.vel.x = parseFloat(box1VelInput.value()) || 0;
     });
   
     box1MassInput = p.createInput(box1.mass.toString());
     box1MassInput.position(canvasX + 100, canvasY + 525); // Position relative to canvas
+    box1MassInput.elt.disabled = true;
     box1MassInput.size(50);
     box1MassInput.input(() => {
       box1.mass = parseFloat(box1MassInput.value()) || 1;
@@ -54,6 +56,7 @@ export const momentumSketch = (p) => {
     p.createElement('h3', 'Box 2').position(canvasX + 200, canvasY + 450);
     box2VelInput = p.createInput(box2.vel.x.toString());
     box2VelInput.position(canvasX + 200, canvasY + 500); // Position relative to canvas
+    box2VelInput.elt.disabled = true;
     box2VelInput.size(50);
     box2VelInput.input(() => {
       box2.vel.x = parseFloat(box2VelInput.value()) || 0;
@@ -61,6 +64,7 @@ export const momentumSketch = (p) => {
   
     box2MassInput = p.createInput(box2.mass.toString());
     box2MassInput.position(canvasX + 200, canvasY + 525); // Position relative to canvas
+    box2MassInput.elt.disabled = true;
     box2MassInput.size(50);
     box2MassInput.input(() => {
       box2.mass = parseFloat(box2MassInput.value()) || 1;
