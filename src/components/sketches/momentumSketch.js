@@ -20,6 +20,8 @@ export const momentumSketch = (p) => {
 
   // Input elements for velocity and mass of each box
   let box1VelInput, box1MassInput, box2VelInput, box2MassInput;
+  let pauseButton;
+  let isPaused = false; // Flag to track the simulation state
 
   p.setup = () => {
     let canvas = p.createCanvas(400, 400);
@@ -63,8 +65,12 @@ export const momentumSketch = (p) => {
     box2MassInput.input(() => {
       box2.mass = parseFloat(box2MassInput.value()) || 1;
     });
+
+    // Create a button to pause/resume the simulation
+    pauseButton = p.createButton('Pause');
+    pauseButton.position(canvasX + 150, canvasY + 570);
+    pauseButton.mousePressed(toggleSimulation); // Toggle simulation on click
   };
-  
 
   p.draw = () => {
     p.background(200);
@@ -76,13 +82,35 @@ export const momentumSketch = (p) => {
     p.fill(box2.col.r, box2.col.g, box2.col.b);
     p.rect(box2.pos.x, box2.pos.y, box2.width, box2.height); // Draw second box
 
-    // Update positions of both boxes
-    updatePosition(box1);
-    updatePosition(box2);
+    // Update positions only if the simulation is not paused
+    if (!isPaused) {
+      updatePosition(box1);
+      updatePosition(box2);
 
-    // Check for collision and apply conservation of momentum
-    if (isColliding(box1, box2)) {
-      applyConservationOfMomentum(box1, box2);
+      // Check for collision and apply conservation of momentum
+      if (isColliding(box1, box2)) {
+        applyConservationOfMomentum(box1, box2);
+      }
+    }
+  };
+
+  // Function to toggle between pause and resume
+  const toggleSimulation = () => {
+    isPaused = !isPaused;
+    if (isPaused) {
+      pauseButton.html('Resume');
+      // Enable the inputs when paused
+      box1VelInput.elt.disabled = false;
+      box1MassInput.elt.disabled = false;
+      box2VelInput.elt.disabled = false;
+      box2MassInput.elt.disabled = false;
+    } else {
+      pauseButton.html('Pause');
+      // Disable the inputs when running
+      box1VelInput.elt.disabled = true;
+      box1MassInput.elt.disabled = true;
+      box2VelInput.elt.disabled = true;
+      box2MassInput.elt.disabled = true;
     }
   };
 
