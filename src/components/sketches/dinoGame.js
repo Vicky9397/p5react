@@ -55,7 +55,6 @@ export const dinoGame = (p) => {
     // Detect touch for jumping on touchscreen devices
     p.touchStarted = () => {
       dino.jump(p);
-      return false;  // Prevent any default behavior on touch
     };
       
     class Dino {
