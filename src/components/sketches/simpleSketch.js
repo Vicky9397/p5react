@@ -22,6 +22,7 @@ export const simpleSketch = (p) => {
     p.createElement('p', 'X-Velocity:').position(canvasX + 20, canvasY + 460);
     xVelInput = p.createInput(speed.x.toString());
     xVelInput.position(canvasX + 100, canvasY + 478);
+    xVelInput.elt.disabled = true;
     xVelInput.size(50);
     xVelInput.input(() => {
       speed.x = parseFloat(xVelInput.value()) || 0;
@@ -30,6 +31,7 @@ export const simpleSketch = (p) => {
     p.createElement('p', 'Y-Velocity:').position(canvasX + 20, canvasY + 490);
     yVelInput = p.createInput(speed.y.toString());
     yVelInput.position(canvasX + 100, canvasY + 508);
+    yVelInput.elt.disabled = true;
     yVelInput.size(50);
     yVelInput.input(() => {
       speed.y = parseFloat(yVelInput.value()) || 0;
