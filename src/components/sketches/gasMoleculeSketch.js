@@ -3,16 +3,15 @@ export const gasMoleculeSketch = (p) => {
   
     class GasMolecule {
       constructor(x, y) {
-        this.pos = p.createVector(x, y);
-        this.vel = p.Vector.random2D().mult(p.random(0.5, 2)); // Random speed and direction
-        this.radius = 20; // Size of the molecule
+        this.pos = p.createVector(x, y); // Position vector
+        this.vel = p5.Vector.random2D().mult(p.random(1, 2)); // Random velocity
+        this.radius = 20; // Size of each molecule
       }
   
       update() {
-        // Move the molecule
-        this.pos.add(this.vel);
+        this.pos.add(this.vel); // Update position based on velocity
   
-        // Check for wall collisions and bounce
+        // Bounce off the walls (confined space)
         if (this.pos.x < this.radius || this.pos.x > p.width - this.radius) {
           this.vel.x *= -1;
         }
@@ -21,46 +20,43 @@ export const gasMoleculeSketch = (p) => {
         }
       }
   
-      avoidOverlap(otherMolecules) {
-        // Loop through all other molecules and avoid overlap
+      avoidCollision(otherMolecules) {
         for (let other of otherMolecules) {
-          if (other !== this) {
-            let distBetween = p.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-            let minDist = this.radius + other.radius;
+          if (this !== other) {
+            let distance = p.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
+            let minDistance = this.radius + other.radius;
   
-            // If they are too close, apply a force to push them apart
-            if (distBetween < minDist) {
-              let pushAway = p.Vector.sub(this.pos, other.pos).setMag(1); // Push them apart
-              this.vel.add(pushAway);
+            if (distance < minDistance) {
+              let pushForce = p5.Vector.sub(this.pos, other.pos).setMag(0.5); // Push molecules apart
+              this.vel.add(pushForce); // Add force to velocity to push apart
             }
           }
         }
       }
   
       display() {
-        p.fill(100, 150, 255, 150);
+        p.fill(0, 200, 255, 150);
         p.noStroke();
-        p.ellipse(this.pos.x, this.pos.y, this.radius * 2, this.radius * 2);
+        p.ellipse(this.pos.x, this.pos.y, this.radius * 2);
       }
     }
   
     p.setup = () => {
-      p.createCanvas(400, 400);
-      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Start with one molecule
+      p.createCanvas(500, 500);
+      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Initial gas molecule in the center
     };
   
     p.draw = () => {
-      p.background(220);
+      p.background(255);
   
-      // Update and display all molecules
       for (let molecule of molecules) {
-        molecule.avoidOverlap(molecules); // Avoid other molecules
-        molecule.update();
-        molecule.display();
+        molecule.avoidCollision(molecules); // Avoid collision with other molecules
+        molecule.update(); // Update position
+        molecule.display(); // Display molecule
       }
     };
   
-    // Create new molecule on mouse click or touch
+    // Add a new gas molecule on mouse click or touch
     p.mousePressed = () => {
       molecules.push(new GasMolecule(p.mouseX, p.mouseY));
     };
