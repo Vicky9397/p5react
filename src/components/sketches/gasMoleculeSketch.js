@@ -3,18 +3,18 @@ export const gasMoleculeSketch = (p) => {
   
     class GasMolecule {
       constructor(x, y) {
-        this.pos = p.createVector(x, y); // Use p.createVector instead of p5
-        this.vel = p.createVector(p.random(-2, 2), p.random(-2, 2)); // Random initial velocity
-        this.speed = 1.5; // Speed of random movement
-        this.radius = 10; // Size of each molecule
+        this.pos = p.createVector(x, y); // Position of the molecule
+        this.vel = p.createVector(p.random(-2, 2), p.random(-2, 2)); // Initial random velocity
+        this.speed = 1.5; // Speed of movement
+        this.radius = 10; // Radius of the molecule
       }
   
       update() {
-        // Update ball position with random movement
+        // Update position with random movement
         this.pos.x += p.random(-1, 1) * this.speed;
         this.pos.y += p.random(-1, 1) * this.speed;
   
-        // Bounce off the walls (confined space)
+        // Bounce off the walls
         if (this.pos.x < this.radius || this.pos.x > p.width - this.radius) {
           this.vel.x *= -1;
         }
@@ -23,16 +23,21 @@ export const gasMoleculeSketch = (p) => {
         }
       }
   
-      avoidCollision(otherMolecules) {
+      avoidOverlap(otherMolecules) {
         for (let other of otherMolecules) {
           if (this !== other) {
             let distance = p.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
             let minDistance = this.radius + other.radius;
   
+            // If distance is less than the sum of their radii, adjust position
             if (distance < minDistance) {
-              let pushForce = p.createVector(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
-              pushForce.setMag(0.5); // Push molecules apart when too close
-              this.vel.add(pushForce); // Adjust velocity to move apart
+              // Calculate direction away from the other molecule
+              let overlap = minDistance - distance;
+              let direction = p.createVector(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
+              direction.normalize();
+              
+              // Move this molecule away by the overlap amount
+              this.pos.add(direction.mult(overlap));
             }
           }
         }
@@ -47,14 +52,14 @@ export const gasMoleculeSketch = (p) => {
   
     p.setup = () => {
       p.createCanvas(400, 400);
-      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Initial gas molecule
+      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Create an initial molecule
     };
   
     p.draw = () => {
       p.background(200);
   
       for (let molecule of molecules) {
-        molecule.avoidCollision(molecules); // Avoid collision with other molecules
+        molecule.avoidOverlap(molecules); // Avoid overlapping with other molecules
         molecule.update(); // Update position with random movement
         molecule.display(); // Display molecule
       }
