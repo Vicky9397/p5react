@@ -14,12 +14,18 @@ export const gasMoleculeSketch = (p) => {
         this.pos.x += p.random(-1, 1) * this.speed;
         this.pos.y += p.random(-1, 1) * this.speed;
   
-        // Bounce off the walls
-        if (this.pos.x < this.radius || this.pos.x > p.width - this.radius) {
-          this.vel.x *= -1;
+        // Ensure molecules bounce off the canvas walls
+        if (this.pos.x < this.radius) {
+          this.pos.x = this.radius;
         }
-        if (this.pos.y < this.radius || this.pos.y > p.height - this.radius) {
-          this.vel.y *= -1;
+        if (this.pos.x > p.width - this.radius) {
+          this.pos.x = p.width - this.radius;
+        }
+        if (this.pos.y < this.radius) {
+          this.pos.y = this.radius;
+        }
+        if (this.pos.y > p.height - this.radius) {
+          this.pos.y = p.height - this.radius;
         }
       }
   
@@ -27,15 +33,14 @@ export const gasMoleculeSketch = (p) => {
         for (let other of otherMolecules) {
           if (this !== other) {
             let distance = p.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-            let minDistance = this.radius + other.radius;
+            let minDistance = this.radius + other.radius + 2.5;
   
             // If distance is less than the sum of their radii, adjust position
             if (distance < minDistance) {
-              // Calculate direction away from the other molecule
               let overlap = minDistance - distance;
               let direction = p.createVector(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
               direction.normalize();
-              
+  
               // Move this molecule away by the overlap amount
               this.pos.add(direction.mult(overlap));
             }
@@ -52,7 +57,7 @@ export const gasMoleculeSketch = (p) => {
   
     p.setup = () => {
       p.createCanvas(400, 400);
-      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Create an initial molecule
+      molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Initial molecule
     };
   
     p.draw = () => {
