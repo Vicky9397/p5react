@@ -4,7 +4,7 @@ export const gasMoleculeSketch = (p) => {
     class GasMolecule {
       constructor(x, y) {
         this.pos = p.createVector(x, y);
-        this.vel = p5.Vector.random2D().mult(p.random(0.5, 2)); // Random speed and direction
+        this.vel = p.Vector.random2D().mult(p.random(0.5, 2)); // Random speed and direction
         this.radius = 20; // Size of the molecule
       }
   
@@ -30,7 +30,7 @@ export const gasMoleculeSketch = (p) => {
   
             // If they are too close, apply a force to push them apart
             if (distBetween < minDist) {
-              let pushAway = p5.Vector.sub(this.pos, other.pos).setMag(1); // Push them apart
+              let pushAway = p.Vector.sub(this.pos, other.pos).setMag(1); // Push them apart
               this.vel.add(pushAway);
             }
           }
