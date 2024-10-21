@@ -5,7 +5,7 @@ export const gasMoleculeSketch = (p) => {
       constructor(x, y) {
         this.pos = p.createVector(x, y); // Use p.createVector instead of p5
         this.vel = p.createVector(p.random(-2, 2), p.random(-2, 2)); // Random velocity
-        this.radius = 20; // Size of each molecule
+        this.radius = 10; // Size of each molecule
       }
   
       update() {
@@ -24,7 +24,7 @@ export const gasMoleculeSketch = (p) => {
         for (let other of otherMolecules) {
           if (this !== other) {
             let distance = p.dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-            let minDistance = this.radius + other.radius;
+            let minDistance = this.radius + other.radius + 1;
   
             if (distance < minDistance) {
               let pushForce = p.createVector(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
@@ -43,12 +43,12 @@ export const gasMoleculeSketch = (p) => {
     }
   
     p.setup = () => {
-      p.createCanvas(500, 500);
+      p.createCanvas(400, 400);
       molecules.push(new GasMolecule(p.width / 2, p.height / 2)); // Initial gas molecule in the center
     };
   
     p.draw = () => {
-      p.background(255);
+      p.background(200);
   
       for (let molecule of molecules) {
         molecule.avoidCollision(molecules); // Avoid collision with other molecules
