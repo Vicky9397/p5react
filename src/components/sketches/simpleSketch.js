@@ -1,5 +1,5 @@
 export const simpleSketch = (p) => {
-  let pos = { x: 25, y: 25 }; // Initial position of the ball
+  let pos = { x: 200, y: 200 }; // Initial position of the ball
   let speed = { x: 1, y: 1.5 }; // Initial speed in both x and y directions
   let col = { r: 255, g: 255, b: 255 };
   let c = p.color(col.r, col.g, col.b);
