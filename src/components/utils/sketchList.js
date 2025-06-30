@@ -5,6 +5,7 @@ import { randomMovementSketch } from '../sketches/randomMovementSketch';
 import { gasMoleculeSketch } from '../sketches/gasMoleculeSketch';
 import { steamEngineSketch } from '../sketches/steamEngineSketch';
 import { brickBreakerSketch } from '../sketches/brickBreakerSketch';
+import { spiroOrbitSketch } from '../sketches/spiroOrbitSketch';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -14,5 +15,6 @@ export const sketches = {
     Random: randomMovementSketch,
     GasMolecules: gasMoleculeSketch,
     SteamEngine: steamEngineSketch,
-    BrickBreaker: brickBreakerSketch
+    BrickBreaker: brickBreakerSketch,
+    SpiroOrbit: spiroOrbitSketch
 };
