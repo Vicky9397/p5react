@@ -9,12 +9,12 @@ import { spiroOrbitSketch } from '../sketches/spiroOrbitSketch';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
-    Simple: simpleSketch,
-    Momentum: momentumSketch,
-    DinoGame: dinoGame,
-    Random: randomMovementSketch,
-    GasMolecules: gasMoleculeSketch,
-    SteamEngine: steamEngineSketch,
-    BrickBreaker: brickBreakerSketch,
-    SpiroOrbit: spiroOrbitSketch
+    Simple: simpleSketch, //simple bouncing ball simulation
+    Momentum: momentumSketch, //simulation of law of conservation of momentum
+    //DinoGame: dinoGame, //jumping game inspired from chrome browser
+    Random: randomMovementSketch, //simulation of atomic vibration
+    GasMolecules: gasMoleculeSketch, //simulation of gas molecules
+    //SteamEngine: steamEngineSketch, //simulation of steam engine in 2D
+    //BrickBreaker: brickBreakerSketch, //brick breaker game
+    SpiroOrbit: spiroOrbitSketch, //spirography simulation
 };
