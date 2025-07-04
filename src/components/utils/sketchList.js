@@ -11,6 +11,7 @@ import { mengerSpongeSketch } from '../sketches/challenges/challenge02_menger_sp
 import { snakeGameSketch } from '../sketches/challenges/challenge03_snake_game';
 import { purpleRainSketch } from '../sketches/challenges/challenge04_purple_rain';
 import { spaceInvadersSketch } from '../sketches/challenges/challenge05_space_invaders';
+import { mitosisSketch } from '../sketches/challenges/challenge006_mitosis_simulation';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -27,4 +28,5 @@ export const sketches = {
     SnakeGame: snakeGameSketch, //snake game challenge from coding train
     PurpleRain: purpleRainSketch, // purple rain simulation from coding train
     SpaceInvaders: spaceInvadersSketch, // space invaders game challenge from coding train
+    Mitosis: mitosisSketch, // mitosis simulation challenge from coding train
 };
