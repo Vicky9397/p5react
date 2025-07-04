@@ -9,6 +9,7 @@ import { spiroOrbitSketch } from '../sketches/spiroOrbitSketch';
 import { starfieldSketch } from '../sketches/challenges/challenge01_starfield';
 import { mengerSpongeSketch } from '../sketches/challenges/challenge02_menger_sponge_fractal';
 import { snakeGameSketch } from '../sketches/challenges/challenge03_snake_game';
+import { purpleRainSketch } from '../sketches/challenges/challenge04_purple_rain';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -23,4 +24,5 @@ export const sketches = {
     Starfield: starfieldSketch, //starfield simulation challenge from coding train
     MengerSpongeFractal: mengerSpongeSketch, //menger sponge fractal challenge from coding train
     SnakeGame: snakeGameSketch, //snake game challenge from coding train
+    PurpleRain: purpleRainSketch, // purple rain simulation from coding train
 };
