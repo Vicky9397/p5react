@@ -12,6 +12,19 @@ const P5Wrapper = ({ sketch }) => {
       canvas.remove(); // Clean up the sketch on component unmount
     };
   }, [sketch]);
+  useEffect(() => {
+  const handler = (e) => {
+    const arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' '];
+    if (arrowKeys.includes(e.key)) {
+      e.preventDefault(); // ✅ Stop arrow keys from affecting dropdown
+    }
+  };
+
+  window.addEventListener('keydown', handler);
+  return () => {
+    window.removeEventListener('keydown', handler); // Cleanup on unmount
+  };
+}, []);
 
   return <div ref={sketchRef}></div>;
 };
