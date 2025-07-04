@@ -20,6 +20,7 @@ import { terrain3DSketch } from '../sketches/challenges/challenge011_3d_terrain_
 import { lorenzAttractorSketch } from '../sketches/challenges/challenge012_lorenz_attractor';
 import { reactionDiffusionSketch } from '../sketches/challenges/challenge013_reaction_diffusion';
 import { fractalTreeSketch } from '../sketches/challenges/challenge014_recursive_fractal_tree';
+import { fractalTreeOOSketch } from '../sketches/challenges/challenge015_object_oriented_fractal_tree';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -45,4 +46,5 @@ export const sketches = {
     LorenzAttractor: lorenzAttractorSketch, // lorenz attractor challenge from coding train
     ReactionDiffusion: reactionDiffusionSketch, // reaction diffusion algorithm challenge from coding train
     RecursiveFractalTree: fractalTreeSketch, // recursive fractal tree challenge from coding train
+    ObjectOrientedFractalTree: fractalTreeOOSketch, // object oriented fractal tree challenge from coding train
 };
