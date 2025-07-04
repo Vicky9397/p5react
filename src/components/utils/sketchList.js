@@ -18,6 +18,7 @@ import { solarSystemTexturedSketch } from '../sketches/challenges/challenge009_s
 import { mazeSketch } from '../sketches/challenges/challenge010_maze_generator';
 import { terrain3DSketch } from '../sketches/challenges/challenge011_3d_terrain_generation_using_perlin_noise';
 import { lorenzAttractorSketch } from '../sketches/challenges/challenge012_lorenz_attractor';
+import { reactionDiffusionSketch } from '../sketches/challenges/challenge013_reaction_diffusion';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -41,4 +42,5 @@ export const sketches = {
     MazeGenerator: mazeSketch, // maze generator using backtracing algorithm challenge from coding train
     TerrainGenerator3D: terrain3DSketch, // 3d terrain generation using perlin noise challenge from coding train
     LorenzAttractor: lorenzAttractorSketch, // lorenz attractor challenge from coding train
+    ReactionDiffusion: reactionDiffusionSketch, // reaction diffusion algorithm challenge from coding train
 };
