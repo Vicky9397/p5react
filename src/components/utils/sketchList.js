@@ -6,6 +6,7 @@ import { gasMoleculeSketch } from '../sketches/gasMoleculeSketch';
 import { steamEngineSketch } from '../sketches/steamEngineSketch';
 import { brickBreakerSketch } from '../sketches/brickBreakerSketch';
 import { spiroOrbitSketch } from '../sketches/spiroOrbitSketch';
+import { starfieldSketch } from '../sketches/challenges/challenge01_starfield';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -17,4 +18,5 @@ export const sketches = {
     //SteamEngine: steamEngineSketch, //simulation of steam engine in 2D
     //BrickBreaker: brickBreakerSketch, //brick breaker game
     SpiroOrbit: spiroOrbitSketch, //spirography simulation
+    Starfield: starfieldSketch, //starfield simulation challenge from coding train
 };
