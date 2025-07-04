@@ -6,11 +6,11 @@ import { gasMoleculeSketch } from '../sketches/gasMoleculeSketch';
 import { steamEngineSketch } from '../sketches/steamEngineSketch';
 import { brickBreakerSketch } from '../sketches/brickBreakerSketch';
 import { spiroOrbitSketch } from '../sketches/spiroOrbitSketch';
-import { starfieldSketch } from '../sketches/challenges/challenge01_starfield';
-import { mengerSpongeSketch } from '../sketches/challenges/challenge02_menger_sponge_fractal';
-import { snakeGameSketch } from '../sketches/challenges/challenge03_snake_game';
-import { purpleRainSketch } from '../sketches/challenges/challenge04_purple_rain';
-import { spaceInvadersSketch } from '../sketches/challenges/challenge05_space_invaders';
+import { starfieldSketch } from '../sketches/challenges/challenge001_starfield';
+import { mengerSpongeSketch } from '../sketches/challenges/challenge002_menger_sponge_fractal';
+import { snakeGameSketch } from '../sketches/challenges/challenge003_snake_game';
+import { purpleRainSketch } from '../sketches/challenges/challenge004_purple_rain';
+import { spaceInvadersSketch } from '../sketches/challenges/challenge005_space_invaders';
 import { mitosisSketch } from '../sketches/challenges/challenge006_mitosis_simulation';
 import { solarSystemSketch } from '../sketches/challenges/challenge007_solar_system_2d';
 
