@@ -15,6 +15,7 @@ import { mitosisSketch } from '../sketches/challenges/challenge006_mitosis_simul
 import { solarSystemSketch } from '../sketches/challenges/challenge007_solar_system_2d';
 import { solarSystem3DSketch } from '../sketches/challenges/challenge008_solar_system_3d';
 import { solarSystemTexturedSketch } from '../sketches/challenges/challenge009_solar_system_3d_textured';
+import { mazeSketch } from '../sketches/challenges/challenge010_maze_generator';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -35,4 +36,5 @@ export const sketches = {
     SolarSystem2D: solarSystemSketch, // 2d solar system simulation challenge from coding train
     SolarSystem3D: solarSystem3DSketch, // 3d solar system simulation challenge from coding train
     SolarSystem3DTextured: solarSystemTexturedSketch, // 3d solar system simulation with textures challenge from coding train
+    MazeGenerator: mazeSketch, // maze generator using backtracing algorithm challenge from coding train
 };
