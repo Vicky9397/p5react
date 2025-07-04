@@ -6,8 +6,8 @@ export const spiroOrbitSketch = (p) => {
   let r2 = 50;
   let centerX, centerY;
 
-  let baseSpeed1 = 0.02;
-  let baseSpeed2 = 0.07;
+  let baseSpeed1 = 0.05;
+  let baseSpeed2 = 0.05;
 
   let drift1 = 0.00003;
   let drift2 = -0.00005;
@@ -85,14 +85,14 @@ export const spiroOrbitSketch = (p) => {
 
   p.draw = () => {
     if (!isPaused) {
-      let x1 = centerX + p.cos(angle1) * r1;
-      let y1 = centerY + p.sin(angle1) * r1;
+      let x1 = centerX + (p.cos(angle2)**1) * r1;
+      let y1 = centerY + (p.sin(angle2)**1) * r1;
 
-      let x2 = x1 + p.cos(angle2) * r2;
-      let y2 = y1 + p.sin(angle2) * r2;
+      let x2 = x1 + (p.cos(angle1)**1) * r2;
+      let y2 = y1 + (p.sin(angle1)**1) * r2;
 
       p.stroke(hue % 360, 100, 100);
-      p.strokeWeight(1);
+      p.strokeWeight(2);
 
       if (prevX !== null && prevY !== null) {
         p.line(prevX, prevY, x2, y2); // draw line from last point to current
