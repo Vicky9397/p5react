@@ -25,6 +25,8 @@ import { lSystemFractalTreeSketch } from '../sketches/challenges/challenge016_fr
 import { spaceColonizationTreeSketch } from '../sketches/challenges/challenge017_space_colonization';
 import { superellipseSketch } from '../sketches/challenges/challenge019_super_ellipse';
 import { clothSimulationSketch } from '../sketches/challenges/challenge020_cloth_simulation_3d';
+import { mandelbrotSketch } from '../sketches/challenges/challenge021_mandel_brot';
+import { juliaSetSketch } from '../sketches/challenges/challenge022_juliaset';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -55,4 +57,6 @@ export const sketches = {
     SpaceColonization: spaceColonizationTreeSketch, // space colonization challenge from coding train
     SuperEllipse: superellipseSketch, // super ellipse challenge from coding train
     ClothSimulation: clothSimulationSketch, // cloth simulation challenge from coding train
+    MandelBrot: mandelbrotSketch, // mandelbrot fractal simulation challenge from coding train
+    JuliaSet: juliaSetSketch, // julia set fractal challenge from coding train
 };
