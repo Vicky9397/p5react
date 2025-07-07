@@ -27,6 +27,8 @@ import { superellipseSketch } from '../sketches/challenges/challenge019_super_el
 import { clothSimulationSketch } from '../sketches/challenges/challenge020_cloth_simulation_3d';
 import { mandelbrotSketch } from '../sketches/challenges/challenge021_mandel_brot';
 import { juliaSetSketch } from '../sketches/challenges/challenge022_juliaset';
+import { superShape2DSketch } from '../sketches/challenges/challenge023_2d_super_shape_generator';
+import { perlinFlowFieldSketch } from '../sketches/challenges/challenge024_perlin_noise_flow_field';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -59,4 +61,6 @@ export const sketches = {
     ClothSimulation: clothSimulationSketch, // cloth simulation challenge from coding train
     MandelBrot: mandelbrotSketch, // mandelbrot fractal simulation challenge from coding train
     JuliaSet: juliaSetSketch, // julia set fractal challenge from coding train
+    SuperShape2D: superShape2DSketch, // 2d super shape generator challenge from coding train
+    PerlinNoiseField: perlinFlowFieldSketch, // perlin noise flow field generator challenge from coding train
 };
