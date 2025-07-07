@@ -22,6 +22,7 @@ import { reactionDiffusionSketch } from '../sketches/challenges/challenge013_rea
 import { fractalTreeSketch } from '../sketches/challenges/challenge014_recursive_fractal_tree';
 import { fractalTreeOOSketch } from '../sketches/challenges/challenge015_object_oriented_fractal_tree';
 import { lSystemFractalTreeSketch } from '../sketches/challenges/challenge016_fractal_trees_L_system';
+import { spaceColonizationTreeSketch } from '../sketches/challenges/challenge017_space_colonization';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -49,4 +50,5 @@ export const sketches = {
     RecursiveFractalTree: fractalTreeSketch, // recursive fractal tree challenge from coding train
     ObjectOrientedFractalTree: fractalTreeOOSketch, // object oriented fractal tree challenge from coding train
     LSystemFractalTree: lSystemFractalTreeSketch, // fractal trees L system challenge from coding tree
+    SpaceColonization: spaceColonizationTreeSketch, // space colonization challenge from coding tree
 };
