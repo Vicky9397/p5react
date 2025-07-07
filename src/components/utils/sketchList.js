@@ -24,6 +24,7 @@ import { fractalTreeOOSketch } from '../sketches/challenges/challenge015_object_
 import { lSystemFractalTreeSketch } from '../sketches/challenges/challenge016_fractal_trees_L_system';
 import { spaceColonizationTreeSketch } from '../sketches/challenges/challenge017_space_colonization';
 import { superellipseSketch } from '../sketches/challenges/challenge019_super_ellipse';
+import { clothSimulationSketch } from '../sketches/challenges/challenge020_cloth_simulation_3d';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -50,7 +51,8 @@ export const sketches = {
     ReactionDiffusion: reactionDiffusionSketch, // reaction diffusion algorithm challenge from coding train
     RecursiveFractalTree: fractalTreeSketch, // recursive fractal tree challenge from coding train
     ObjectOrientedFractalTree: fractalTreeOOSketch, // object oriented fractal tree challenge from coding train
-    LSystemFractalTree: lSystemFractalTreeSketch, // fractal trees L system challenge from coding tree
-    SpaceColonization: spaceColonizationTreeSketch, // space colonization challenge from coding tree
-    SuperEllipse: superellipseSketch, // super ellipse challenge from coding tree
+    LSystemFractalTree: lSystemFractalTreeSketch, // fractal trees L system challenge from coding train
+    SpaceColonization: spaceColonizationTreeSketch, // space colonization challenge from coding train
+    SuperEllipse: superellipseSketch, // super ellipse challenge from coding train
+    ClothSimulation: clothSimulationSketch, // cloth simulation challenge from coding train
 };
