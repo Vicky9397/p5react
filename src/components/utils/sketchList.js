@@ -23,6 +23,7 @@ import { fractalTreeSketch } from '../sketches/challenges/challenge014_recursive
 import { fractalTreeOOSketch } from '../sketches/challenges/challenge015_object_oriented_fractal_tree';
 import { lSystemFractalTreeSketch } from '../sketches/challenges/challenge016_fractal_trees_L_system';
 import { spaceColonizationTreeSketch } from '../sketches/challenges/challenge017_space_colonization';
+import { superellipseSketch } from '../sketches/challenges/challenge019_super_ellipse';
 
 // Define available sketches in an object with a name and corresponding sketch function
 export const sketches = {
@@ -51,4 +52,5 @@ export const sketches = {
     ObjectOrientedFractalTree: fractalTreeOOSketch, // object oriented fractal tree challenge from coding train
     LSystemFractalTree: lSystemFractalTreeSketch, // fractal trees L system challenge from coding tree
     SpaceColonization: spaceColonizationTreeSketch, // space colonization challenge from coding tree
+    SuperEllipse: superellipseSketch, // super ellipse challenge from coding tree
 };
