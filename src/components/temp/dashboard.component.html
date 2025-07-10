@@ -1,0 +1,218 @@
+<div class=\"row\">\r\n <toaster-container></toaster-container>\r\n <div class=\"col-sm-12 profile-content\"
+        style=\"margin-top: 0%\">\r\n <div class=\"row\">\r\n <div class=\"col-sm-3 text-center\">\r\n
+                <div class=\"profile-pic\">\r\n
+                    <img\r\n src=\"{{ imgURL }}\"\r\n height=\"200\"\r\n width=\"200\"\r\n style=\"\r\n
+                        background-repeat: no-repeat;\r\n background-position: 50%;\r\n border-radius: 50%;\r\n width:
+                        110px;\r\n height: 110px;\r\n margin-top: 14px;\r\n \"\r\n />\r\n
+                </div>\r\n
+            </div>\r\n <div class=\"col-sm-9\">\r\n <div class=\"row\">\r\n <div class=\"col-sm-6\">\r\n
+                        <h2 class=\"\">{{ empname }}</h2>\r\n
+                    </div>\r\n <div class=\"col-sm-6\">\r\n <h2 class=\"changepwd\" (click)=\"openChangePassword()\">
+                            \r\n Change Password\r\n </h2>\r\n
+                    </div>\r\n </div>\r\n <div class=\"row\">\r\n <div class=\"col-sm-4\">\r\n <span class=\"col-sm-12
+                            profile-list\"\r\n><span class=\"menu-img\"\r\n>
+                                <img\r\n src=\"assets/images/designation.png\"\r\n alt=\"designation\" />
+                                </span\r\n><span>{{ designation }}</span></span\r\n>\r\n <span class=\"col-sm-12
+                                    profile-list\"\r\n><span class=\"menu-img\">\r\n <img src=\"assets/images/id.png\"
+                                            alt=\"id\" /></span\r\n>{{ empid }}</span\r\n>\r\n </div>\r\n <div
+                        class=\"col-sm-4\" *ngIf=\"app.role !='ROLE_ADMIN' \">\r\n <span class=\"col-sm-12
+                            profile-list\"\r\n><span class=\"menu-img\">\r\n <img src=\"assets/images/team.png\"
+                                    alt=\"team\" /></span\r\n>{{ team }}</span\r\n>\r\n <span class=\"col-sm-12
+                                    profile-list\"\r\n><span class=\"menu-img\">\r\n
+                                        <img\r\n src=\"assets/images/contact-no.png\"\r\n alt=\"contact-no\" />
+                                        </span\r\n>{{ mobileNo }}</span\r\n>\r\n </div>\r\n
+                    <!-- <div class=\"col-sm-4\" *ngIf = \"app.role != 'ROLE_ADMIN' && empid <= 3375\">\r\n                \r\n                <span class=\"col-sm-12 profile-list\"><span class=\"menu-img\"> <img src=\"assets/images/team.png\" alt=\"team\"/></span>{{empprojectname}}</span> \r\n                <span class=\"col-sm-12  profile-list\"><span class=\"menu-img\"> <img src=\"assets/images/contact-no.png\" alt=\"contact-no\"/></span>{{mobileNo}}</span> \r\n            </div> -->\r\n
+                    <div class=\"col-sm-4\">\r\n <span class=\"col-sm-12 g profile-list\"\r\n><span
+                                class=\"menu-img\">\r\n <img src=\"assets/images/email.png\" alt=\"email\" /></span\r\n>
+                                {{ mailid }}</span\r\n>\r\n <span class=\"col-sm-12 profile-list\"\r\n><span
+                                        class=\"menu-img\">\r\n
+                                        <img\r\n src=\"assets/images/blood-group.png\"\r\n alt=\"blood-group\" />
+                                        </span\r\n>{{ bloodgroup }}</span\r\n>\r\n </div>\r\n
+                </div>\r\n </div>\r\n
+        </div>\r\n </div>\r\n</div>\r\n<div class=\"row\" *ngIf=\"app.role !='ROLE_ADMIN' \">\r\n <div class=\"col-sm-12
+        dashboard-content\">\r\n <div class=\"panel panel-primary attendance-details\">\r\n <div
+                class=\"panel-heading\">\r\n <h3 class=\"panel-title\">Attendance Details</h3>\r\n </div>\r\n <div
+                class=\"panel-body no-padding\">\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div
+                        class=\"col-sm-3\">Day In</div>\r\n <div class=\"col-sm-9 blue\">{{ dateIn | date :
+                        \"dd/MMM/yyyy\" }}</div>\r\n </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n
+                    <div class=\"col-sm-3\">Time In</div>\r\n <div class=\"col-sm-9 blue\">{{ dateIn | date : \"HH:mm\"
+                        }}</div>\r\n
+                </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div class=\"col-sm-3\">Day Out</div>
+                    \r\n <div class=\"col-sm-9 blue\">{{ dateOut | date :
+                        \"dd/MMM/yyyy\" }}</div>\r\n </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n
+                    <div class=\"col-sm-3\">Time Out</div>\r\n <div class=\"col-sm-9 blue\">{{ dateOut | date :
+                        \"HH:mm\" }}</div>\r\n
+                </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div class=\"col-sm-3\">Authorised
+                    </div>\r\n <div class=\"col-sm-9 blue\">{{ authorise }}</div>\r\n
+                </div>\r\n\r\n <div class=\"col-sm-12\">\r\n <a\r\n class=\"btn btn-lg btn-success pull-right
+                        down-arrow\"\r\n routerLink=\"/attendanceDetails\"\r\n routerLinkActive=\"active\"\r\n>\r\n Show
+                        More</a\r\n>\r\n </div>\r\n </div>\r\n </div>\r\n <div class=\"panel panel-primary
+            attendance-details\">\r\n <div class=\"panel-heading\">\r\n <h3 class=\"panel-title\">Leave Details</h3>\r\n
+            </div>\r\n <div class=\"panel-body no-padding\">\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n
+                    <div class=\"col-sm-3\">Total Leaves</div>\r\n
+                    <!-- <div *ngIf = \"app.role == 'ROLE_TRAINEE'\">\r\n              <div class=\"col-sm-9 blue\">{{totalLeaves}}&emsp;          \r\n           <a class=\"glyphicon glyphicon-eye-open\" (click)=\"openLeaveDetails()\"></a></div>\r\n                </div> -->\r\n
+                    <div>\r\n <!-- *ngIf = \"app.role == 'ROLE_EMPLOYEE' || app.role == 'ROLE_SUPERVISOR'\">  -->\r\n
+                        <div class=\"col-sm-9 blue\">\r\n {{ totalLeaves }}\r\n
+                            <!-- &emsp;          \r\n           <a class=\"glyphicon glyphicon-eye-open\" (click)=\"openLeaveDetails()\"></a> -->\r\n
+                        </div>\r\n
+                    </div>\r\n
+                </div>\r\n\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div class=\"col-sm-3\">CL</div>
+                    \r\n <div class=\"col-sm-9 blue\">{{ cl }}</div>\r\n </div>\r\n <div class=\"col-sm-12
+                    attendance-details-form\">\r\n <div class=\"col-sm-3\">SL</div>\r\n <div class=\"col-sm-9 blue\">{{
+                        sl }}</div>\r\n </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div
+                        class=\"col-sm-3\">PL</div>\r\n <div class=\"col-sm-9 blue\">{{
+                        pl }}</div>\r\n </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <div
+                        class=\"col-sm-3\">Comp.Off</div>\r\n <div class=\"col-sm-9 blue\">{{ compoff }}</div>\r\n
+                </div>\r\n <div class=\"col-sm-12 attendance-details-form\">\r\n <a\r\n class=\"btn btn-lg btn-primary
+                        btn-panel\"\r\n (click)=\"openLeaveCancellation()\"\r\n>Cancel Leave</a\r\n>\r\n <a\r\n
+                        class=\"btn btn-lg btn-success btn-panel disabled\"\r\n (click)=\"$event.preventDefault()\"\r\n
+                        style=\"pointer-events: none; opacity: 0.6\"\r\n>\r\n Apply Leave\r\n </a>\r\n <a\r\n
+                            class=\"btn btn-lg btn-primary btn-panel\"\r\n routerLink=\"/leaveDetails\"\r\n
+                            routerLinkActive=\"active\"\r\n>Leave History</a\r\n>\r\n <a href=\"#\" class=\"btn btn-lg
+                            btn-panel\" (click)=\"leavePolicy()\"\r\n>Leave Policy\r\n </a>\r\n </div>\r\n\r\n
+                <app-dialog [(visible)]=\"showDialog1\">\r\n <div class=\"modal-header\">\r\n <h4 class=\"modal-title\"
+                            id=\"myModalLabel\">Cancel Leave</h4>\r\n </div>\r\n <div class=\"modal-body\">\r\n
+                        <form\r\n class=\"form-horizontal\"\r\n (ngSubmit)=\"searchEmpCancelLeaveDetails()\"\r\n>\r\n
+                            <div class=\"form-group\">\r\n <label class=\"col-sm-2 control-label\"
+                                    for=\"FromDate\"\r\n>From Date</label\r\n>\r\n <div class=\"col-sm-4\">\r\n
+                                        <my-date-picker\r\n name=\"fromDate\"\r\n [options]=\"myDatePickerOptions\"\r\n
+                                            [(ngModel)]=\"searchFromDate\"\r\n #StartDateControl=\"ngModel\"\r\n
+                                            required\r\n></my-date-picker>\r\n
+                                    </div>\r\n <label class=\"col-sm-2 control-label\" for=\"ToDate\"\r\n>To Date
+                                        </label\r\n>\r\n <div class=\"col-sm-4\">\r\n <my-date-picker\r\n
+                                                name=\"fromDate\"\r\n [options]=\"myDatePickerOptions\"\r\n
+                                                [(ngModel)]=\"searchToDate\"\r\n #StartDateControl=\"ngModel\"\r\n
+                                                required\r\n></my-date-picker>\r\n
+                                        </div>\r\n </div>\r\n <div class=\"form-group\">\r\n <div class=\"col-sm-12\">
+                                    \r\n <div class=\"col-sm-10\">\r\n <button\r\n type=\"submit\"\r\n class=\"btn
+                                            btn-lg btn-success down-arrow pull-right\"\r\n>\r\n Search\r\n </button>\r\n
+                                    </div>\r\n <div class=\"col-sm-2\">\r\n <button\r\n (click)=\"reset()\"\r\n
+                                            class=\"btn btn-lg btn-primary down-arrow pull-right\"\r\n>\r\n Reset\r\n
+                                            </button>\r\n </div>\r\n </div>\r\n </div>\r\n </form>\r\n <div
+                                class=\"row\">\r\n <div class=\"col-sm-12 cancel-leave-table\">\r\n <ng2-smart-table\r\n
+                                        [settings]=\"settings\"\r\n [source]=\"leaveDetails\"\r\n
+                                        (userRowSelect)=\"onUserRowSelect($event)\"\r\n></ng2-smart-table>\r\n </div>
+                                \r\n </div>\r\n
+                    </div>\r\n <div class=\"modal-footer\">\r\n <div>\r\n <button\r\n [disabled]=\"ToggleButton\"\r\n
+                                (click)=\"cancelLeaveApplication()\"\r\n class=\"btn btn-lg btn-success\"\r\n>\r\n
+                                Cancel Leave\r\n </button>\r\n <button\r\n (click)=\"showDialog1=!showDialog1\"\r\n
+                                    class=\"btn btn-lg btn-primary\"\r\n data-dismiss=\"modal\"\r\n>\r\n Close\r\n
+                                    </button>\r\n </div>\r\n </div>\r\n
+                </app-dialog>\r\n <app-dialog [(visible)]=\"showDialog2\">\r\n <div class=\"modal-header\">\r\n <h4
+                            class=\"modal-title\" id=\"myModalLabel\">Leave Application</h4>\r\n </div>\r\n <div
+                        class=\"modal-body\">\r\n <form class=\"form-horizontal\" (ngSubmit)=\"submit()\">\r\n <div
+                                class=\"form-group\">\r\n <label class=\"col-sm-2 control-label\"
+                                    for=\"fromDate\"\r\n>From Date</label\r\n>\r\n <div\r\n class=\"col-sm-4\"\r\n
+                                        [ngClass]=\"{\r\n 'has-error' : !StartDateControl1.valid && submitAttempt\r\n
+                                        }\"\r\n>\r\n <my-date-picker\r\n name=\"fromDate\"\r\n
+                                            [options]=\"myDatePickerOptions\"\r\n [(ngModel)]=\"applyLeaveFromDate\"\r\n
+                                            #StartDateControl1=\"ngModel\"\r\n
+                                            (dateChanged)=\"onStartDateChanged($event)\"\r\n
+                                            required\r\n></my-date-picker>\r\n <span\r\n
+                                                *ngIf=\"!StartDateControl1.valid && submitAttempt\"\r\n
+                                                class=\"help-block\"\r\n>Field is required</span\r\n>\r\n </div>\r\n
+                            <label class=\"col-sm-2 control-label\" for=\"toDate\"\r\n>To Date</label\r\n>\r\n <div\r\n
+                                    class=\"col-sm-4\"\r\n [ngClass]=\"{\r\n 'has-error' :\r\n (!EndDateControl.valid &&
+                                    submitAttempt) ||\r\n freezeDateCheck ||\r\n duplicateDaysControl ||\r\n
+                                    saturdayCheck\r\n }\"\r\n>\r\n <my-date-picker\r\n [disabled]=\"disabled\"\r\n
+                                        name=\"toDate\"\r\n [options]=\"endDate\"\r\n onkeydown=\"return false\"\r\n
+                                        [(ngModel)]=\"applyLeaveToDate\"\r\n #EndDateControl=\"ngModel\"\r\n
+                                        (dateChanged)=\"onEndDateChanged($event)\"\r\n
+                                        required\r\n></my-date-picker>\r\n <span\r\n *ngIf=\"!EndDateControl.valid &&
+                                            submitAttempt\"\r\n class=\"help-block\"\r\n>Field is required</span\r\n>
+                                        \r\n <span *ngIf=\"freezeDateCheck\" class=\"help-block\"\r\n>Kindly Apply Leave
+                                            On or Before 25th\r\n </span>\r\n <span *ngIf=\"saturdayCheck\"
+                                            class=\"help-block\"\r\n>Kindly apply only leave on 27th</span\r\n>\r\n
+                                            <!-- <span *ngIf=\"duplicateDaysControl && !EndDateControl.valid\" class=\"help-block\">Change the date properly</span>   -->\r\n
+                    </div>\r\n <div class=\"col-sm-12\">\r\n <label\r\n class=\"col-sm-2 control-label\"\r\n
+                            for=\"emptyLabel\"\r\n></label>\r\n <div\r\n class=\"col-sm-10\"\r\n
+                                [ngClass]=\"{\r\n 'has-error' : submitAttempt || LeaveAlreadyAppliedControl\r\n }\"\r\n>
+                                \r\n <span *ngIf=\"LeaveAlreadyAppliedControl\" class=\"help-block\"\r\n>Leave already
+                                    applied during this period</span\r\n>\r\n </div>\r\n
+            </div>\r\n <label class=\"col-sm-2 control-label\" for=\"Type\">Type</label>\r\n <div class=\"col-sm-4\">
+                \r\n <select\r\n id=\"Type\"\r\n class=\"form-control\"\r\n [(ngModel)]=\"Type\"\r\n name=\"Type\"\r\n
+                    #name=\"ngModel\"\r\n>\r\n <option value=\"CL/SL/PL\">CL/SL/PL</option>\r\n <option value=\"CO\">
+                        Compensatory Leave</option>\r\n <option value=\"LOP\">Leave Without Pay</option>\r\n <option
+                        value=\"PTL\" *ngIf=\"gender=='Male' \">\r\n Paternal Leave\r\n </option>\r\n <option
+                        value=\"MTL\" *ngIf=\"gender=='Female' \">\r\n Maternal Leave\r\n </option>\r\n </select>\r\n
+            </div>\r\n\r\n <label class=\"col-sm-2 control-label\" for=\"noofdays\"\r\n>No.of Days</label\r\n>\r\n
+                <div\r\n class=\"col-sm-4\"\r\n [ngClass]=\"{\r\n 'has-error' :\r\n (!name.valid && submitAttempt)
+                    ||\r\n NoOfDaysControl ||\r\n duplicateDaysControl\r\n }\"\r\n>\r\n
+                    <input\r\n type=\"text\"\r\n placeholder=\"0\"\r\n (keypress)=\"onlyDecimalNumberKey($event)\"\r\n
+                        id=\"noofdays\"\r\n class=\"form-control\"\r\n [(ngModel)]=\"noofdays\"\r\n maxlength=\"5\"\r\n
+                        name=\"noofdays\"\r\n #name=\"ngModel\"\r\n required\r\n />\r\n
+                    <!-- <span *ngIf=\"!name.valid && noofdays=='' && submitAttempt\" class=\"help-block\">Field is required</span>\r\n                                 <span *ngIf=\"NoOfDaysControl && !noofdays.valid && submitAttempt\" class=\"help-block\">Maximum leaves exceeded</span>\r\n                                  \r\n                                     <span *ngIf=\"noofdays.valid && submitAttempt\" class=\"help-block\">Field is required</span>  -->\r\n\r\n
+                    <span *ngIf=\"NoOfDaysControl\" class=\"help-block\"\r\n>Maximum leaves exceeded</span\r\n>\r\n
+                        <span\r\n *ngIf=\"\r\n !EndDateControl.valid && noofdays=='' && submitAttempt\r\n \"\r\n
+                            class=\"help-block\"\r\n>Field is required</span\r\n>\r\n </div>\r\n <label class=\"col-sm-2
+            control-label\" for=\"reason\"\r\n>Reason</label\r\n>\r\n <div\r\n class=\"col-sm-10\"\r\n
+                [ngClass]=\"{ 'has-error' : !name.valid && submitAttempt }\"\r\n>\r\n <textarea\r\n
+                    class=\"form-control\"\r\n id=\"reason\"\r\n (click)=\"reasonChange($event)\"\r\n
+                    [(ngModel)]=\"reason\"\r\n maxlength=\"100\"\r\n name=\"reason\"\r\n #name=\"ngModel\"\r\n
+                    required\r\n></textarea>\r\n <span *ngIf=\"!name.valid && submitAttempt\"
+                        class=\"help-block\"\r\n>Field is required</span\r\n>\r\n </div>\r\n </div>\r\n </form>\r\n
+</div>\r\n <div class=\"modal-footer\">\r\n <div>\r\n <button\r\n [disabled]=\"ToggleButton\"\r\n
+            (click)=\"saveLeaveApplication()\"\r\n class=\"btn btn-lg btn-success\"\r\n>\r\n Apply Leave\r\n
+            </button>\r\n <button\r\n (click)=\"clear()\"\r\n class=\"btn btn-lg btn-primary\"\r\n
+                data-dismiss=\"modal\"\r\n>\r\n Cancel\r\n </button>\r\n </div>\r\n </div>\r\n </app-dialog>\r\n </div>
+\r\n </div>\r\n </div>\r\n</div>\r\n<app-dialog [(visible)]=\"showDialog\">\r\n <div class=\"modal-header\">\r\n <h4
+            class=\"modal-title\" id=\"myModalLabel\">Change Password</h4>\r\n </div>\r\n <div class=\"modal-body\">\r\n
+        <form class=\"form-horizontal\" (ngSubmit)=\"PasswordCheck()\">\r\n <div class=\"form-group\">\r\n <label
+                    class=\"col-sm-3 control-label\" for=\"oldpwd\">Old Password</label>\r\n <div\r\n
+                    class=\"col-sm-8\"\r\n [ngClass]=\"{\r\n 'has-error' : (!name.valid && submitAttempt) ||
+                    oldPassword\r\n }\"\r\n>\r\n
+                    <input\r\n type=\"password\"\r\n (keypress)=\"eventHandler($event)\"\r\n
+                        [(ngModel)]=\"oldPassword\"\r\n name=\"oldPassword\"\r\n placeholder=\"Old Password\"\r\n
+                        id=\"oldpwd\"\r\n class=\"form-control\"\r\n #name=\"ngModel\"\r\n required\r\n />\r\n <span\r\n
+                        *ngIf=\"!name.valid && submitAttempt && this.oldPassword=='' \"\r\n class=\"help-block\"\r\n>
+                        Field is required</span\r\n>\r\n </div>\r\n <label class=\"col-sm-3 control-label\"
+                for=\"newpwd\">New Password</label>\r\n <div\r\n class=\"col-sm-8\"\r\n [ngClass]=\"{\r\n 'has-error' :
+                (!name.valid && submitAttempt) || newPassword\r\n }\"\r\n>\r\n
+                <input\r\n type=\"password\"\r\n (keypress)=\"eventHandler($event)\"\r\n [(ngModel)]=\"newPassword\"\r\n
+                    name=\"newPassword\"\r\n placeholder=\"New Password\"\r\n maxlength=\"10\"\r\n id=\"newpwd\"\r\n
+                    class=\"form-control\"\r\n #name=\"ngModel\"\r\n required\r\n />\r\n <span\r\n *ngIf=\"!name.valid
+                    && submitAttempt && this.newPassword=='' \"\r\n class=\"help-block\"\r\n>Field is required
+                </span\r\n>\r\n
+    </div>\r\n <label class=\"col-sm-3 control-label\" for=\"newpwd\"\r\n>Re-enter Password
+        </label\r\n>\r\n <div\r\n class=\"col-sm-8\"\r\n [ngClass]=\"{\r\n 'has-error' : (!name.valid && submitAttempt)
+            || reEnterPassword\r\n }\"\r\n>\r\n
+            <input\r\n type=\"password\"\r\n (keypress)=\"eventHandler($event)\"\r\n [(ngModel)]=\"reEnterPassword\"\r\n
+                name=\"reEnterPassword\"\r\n placeholder=\"Re-enter Password\"\r\n maxlength=\"10\"\r\n
+                id=\"rewpwd\"\r\n class=\"form-control\"\r\n #name=\"ngModel\"\r\n required\r\n />\r\n <span\r\n
+                *ngIf=\"!name.valid && submitAttempt && this.reEnterPassword=='' \"\r\n class=\"help-block\"\r\n>Field
+                is required</span\r\n>\r\n <div\r\n class=\"alert alert-danger alert-dismissible\"\r\n
+                role=\"alert\"\r\n *ngIf=\"valid\"\r\n>\r\n <button\r\n type=\"button\"\r\n class=\"close\"\r\n
+                    data-dismiss=\"alert\"\r\n aria-label=\"Close\"\r\n></button>\r\n New and Re-enter password must be
+                    same.\r\n </div>\r\n </div>\r\n </div>\r\n </form>\r\n </div>\r\n <div class=\"modal-footer\">\r\n
+                        <a (click)=\"PasswordCheck()\" class=\"btn btn-lg btn-success\">Submit</a>\r\n <a
+                            (click)=\"closePassword()\" class=\"btn btn-lg btn-primary\">Close</a>\r\n
+                    </div>
+                    \r\n</app-dialog>\r\n\r\n<app-dialog [(visible)]=\"showDialog5\">\r\n <div class=\"modal-header\">
+        \r\n <h4 class=\"modal-title\" id=\"myModalLabel\">Leave Details</h4>\r\n </div>\r\n <div>\r\n <div
+            class=\"modal-body\">\r\n <form class=\"form-horizontal\">\r\n <table border=\"1\" style=\"width: 100%;
+                    border-collapse: collapse\">\r\n
+                    <!-- <col>\r\n                    <colgroup span=\"2\"></colgroup>\r\n                    <colgroup span=\"2\"></colgroup> -->\r\n\r\n
+                    <tr>\r\n <th\r\n colspan=\"1\"\r\n scope=\"colgroup\"\r\n rowspan=\"2\"\r\n style=\"text-align:
+                            center\"\r\n>\r\n Leave Updated Date\r\n </th>\r\n <th colspan=\"4\" scope=\"colgroup\"
+                                style=\"text-align: center\">\r\n Previous Leave Balance\r\n </th>\r\n <th colspan=\"4\"
+                                scope=\"colgroup\" style=\"text-align: center\">\r\n Updated Leave Balance\r\n </th>\r\n
+                    </tr>\r\n <tr>\r\n <th scope=\"col\" style=\"text-align: center\">CL</th>\r\n <th scope=\"col\"
+                            style=\"text-align: center\">SL</th>\r\n <th scope=\"col\" style=\"text-align: center\">PL
+                        </th>\r\n <th scope=\"col\" style=\"text-align: center\">Total</th>\r\n <th scope=\"col\"
+                            style=\"text-align: center\">CL</th>\r\n <th scope=\"col\" style=\"text-align: center\">SL
+                        </th>\r\n <th scope=\"col\" style=\"text-align: center\">PL</th>\r\n <th scope=\"col\"
+                            style=\"text-align: center\">Total</th>\r\n </tr>\r\n <tr align=\"center\">\r\n <th
+                            scope=\"row\" style=\"text-align: center\" class=\"col-sm-9 blue\">\r\n {{ leavecurrentdate
+                            }}\r\n </th>\r\n <td class=\"col-sm-9 blue\">{{ pCL }}</td>\r\n <td class=\"col-sm-9 blue\">
+                            {{ pSL }}</td>\r\n <td class=\"col-sm-9 blue\">{{ pPL }}</td>\r\n <td class=\"col-sm-9
+                            blue\">{{ totalpreviousleave }}</td>\r\n <td class=\"col-sm-9 blue\">{{ UpdatedCL }}</td>
+                        \r\n <td class=\"col-sm-9 blue\">{{ UpdatedSL }}</td>\r\n <td class=\"col-sm-9 blue\">{{
+                            UpdatedPL }}</td>\r\n <td class=\"col-sm-9 blue\">{{ totalupdatedleave }}</td>\r\n </tr>\r\n
+                </table>\r\n </form>\r\n </div>\r\n </div>\r\n</app-dialog>
+
+
+//////////////////
+// WEBPACK FOOTER
+// D:/a/1/s/ess/ESS-Angular/src/app/dashboard/dashboard.component.html
+// module id = ../../../../../src/app/dashboard/dashboard.component.html
+// module chunks = 0
